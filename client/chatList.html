@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat List</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="appbar">
+  <div class="inner">
+    <div class="brand">
+      <span class="dot"></span>
+      <span id="meName">—</span>
+    </div>
+    <button id="logoutBtn" class="danger">ログアウト</button>
+  </div>
+</header>
+
+<main class="container">
+  <div class="card">
+    <h2>相手一覧</h2>
+    <button id="loadBtn">読み込む</button>
+    <ul id="usersList"></ul>
+  </div>
+</main>
+
+<script type="module" src="js/chatList.js"></script>
+</body>
+</html>

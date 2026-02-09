@@ -1,0 +1,10 @@
+# node modules（依存ライブラリ）
+node_modules/
+
+# 環境変数（絶対に公開しない）
+.env
+server/.env
+
+# ログ
+npm-debug.log*
+yarn-debug.log*

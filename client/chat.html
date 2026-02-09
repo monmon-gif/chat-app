@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="appbar">
+  <div class="inner">
+    <button id="backBtn">← 戻る</button>
+    <div class="brand"><span class="dot"></span>Chat</div>
+    <button id="logoutBtn" class="danger">ログアウト</button>
+  </div>
+</header>
+
+<main class="container">
+  <div id="log" class="chatlog"></div>
+
+  <form id="form" class="chatbar">
+    <input id="input" placeholder="message" />
+    <button type="submit">Send</button>
+  </form>
+</main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="js/chat.js"></script>
+</body>
+</html>

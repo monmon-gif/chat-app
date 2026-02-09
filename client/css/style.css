@@ -1,0 +1,242 @@
+/* =========================
+   アプリ全体のテーマ変数（明るめ）
+   ========================= */
+:root {
+  --bg: #f5f7fb;          /* 全体背景（薄いグレー） */
+  --card: #ffffff;       /* カード背景 */
+  --text: #1f2937;       /* 文字色（濃いグレー） */
+  --muted: #6b7280;      /* 補足テキスト */
+  --border: #e5e7eb;     /* 枠線 */
+
+  --primary: #2563eb;    /* 自分の吹き出し（青） */
+  --primary-soft: #dbeafe;
+  --other: #f3f4f6;      /* 相手の吹き出し */
+  --danger: #ef4444;
+
+  --radius: 16px;
+  --tap: 44px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* =========================
+   アプリ上部ヘッダー（明るめ）
+   ========================= */
+.appbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  /* ★ 黒をやめて白系に */
+  background: #ffffff;
+
+  /* ★ 下にうっすら影（アプリ感） */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+  /* ★ 黒線を消す */
+  border-bottom: none;
+}
+
+/* ヘッダー内レイアウト */
+.appbar .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+/* アプリ名 */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #1f2937; /* 濃いグレーで読みやすく */
+}
+
+/* 左の青いドット */
+.brand .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+/* =========================
+   ヘッダーボタン調整
+   ========================= */
+
+/* 戻るボタン（青） */
+.appbar button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px; /* pill型 */
+  font-size: 13px;
+}
+
+/* ログアウト（赤） */
+.appbar button.danger {
+  background: #ef4444;
+}
+
+
+/* =========================
+   レイアウト
+   ========================= */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* PCでは横並び、スマホでは縦 */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   カードUI
+   ========================= */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 16px;
+}
+
+/* =========================
+   フォーム
+   ========================= */
+label {
+  font-size: 13px;
+  color: var(--muted);
+  display: block;
+  margin-top: 12px;
+}
+
+input {
+  width: 100%;
+  height: var(--tap);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  padding: 0 12px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* =========================
+   ボタン
+   ========================= */
+button {
+  height: var(--tap);
+  padding: 0 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+/* =========================
+   チャット表示
+   ========================= */
+.chatlog {
+  height: 60vh;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fafafa;
+}
+
+/* 1メッセージ */
+.msg {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+/* 相手のメッセージ（左） */
+.msg.other {
+  justify-content: flex-start;
+}
+
+/* 自分のメッセージ（右） */
+.msg.me {
+  justify-content: flex-end;
+}
+
+/* 吹き出し */
+.bubble {
+  max-width: 75%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 相手 */
+.msg.other .bubble {
+  background: var(--other);
+  border-top-left-radius: 4px;
+}
+
+/* 自分 */
+.msg.me .bubble {
+  background: var(--primary-soft);
+  border-top-right-radius: 4px;
+}
+
+.msg.me {
+  justify-content: flex-end;
+}
+
+/* 吹き出し */
+.bubble {
+  max-width: 75%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.08);
+}
+
+.msg.me .bubble {
+  background: rgba(79,70,229,.3);
+}
+
+/* 送信バー */
+.chatbar {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chatbar input {
+  flex: 1;
+}
