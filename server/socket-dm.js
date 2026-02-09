@@ -5,7 +5,7 @@
  * ・dm:send でDB保存→部屋に配信
  */
 const jwt = require("jsonwebtoken");
-const { pool } = require("./db");
+const pool = require("./db");
 
 const JWT_SECRET = process.env.JWT_SECRET || "dev_secret_change_me";
 const TOKEN_COOKIE = "token";
