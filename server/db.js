@@ -3,7 +3,7 @@
  * - ローカル: SSLなしでOK
  * - Heroku(Postgres): SSL必須なので有効化する
  */
-const { Pool } = require("pg");
+const pool = require("./db");
 
 const connectionString = process.env.DATABASE_URL;
 
